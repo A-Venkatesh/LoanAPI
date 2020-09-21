@@ -5,8 +5,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 	public interface LoanRepository extends MongoRepository<Loan, String> {
-
-//		  List<LoanApplication> findByID(Object id);
-//		  List<LoanApplication> findByCustID(int custID);
 		  
 	}

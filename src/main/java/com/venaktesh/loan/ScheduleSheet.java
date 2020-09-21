@@ -11,8 +11,9 @@ public class ScheduleSheet {
 	@Id
 	private String loanID;
 	private List<Schedule> evenPrincipal = new ArrayList<Schedule>();
-	private List<Schedule> interestOnly  = new ArrayList<Schedule>();
-	int custID	;
+	private List<Schedule> interestOnly = new ArrayList<Schedule>();
+	int custID;
+
 	public ScheduleSheet() {
 	}
 
@@ -48,6 +49,4 @@ public class ScheduleSheet {
 		this.loanID = loanID;
 	}
 
-	
-	
 }
