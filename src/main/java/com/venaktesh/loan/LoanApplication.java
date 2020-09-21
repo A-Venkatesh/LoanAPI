@@ -24,7 +24,7 @@ public class LoanApplication extends SpringBootServletInitializer {
 			@Override
 			public void addCorsMappings(CorsRegistry registry) {
 				  logger.info("CORS Policy");
-				registry.addMapping("/**").allowedOrigins("http://localhost:4200");
+				registry.addMapping("/**").allowedOrigins("https://loan-4b6a1.web.app");
 			}
 		};
 	}

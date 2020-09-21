@@ -24,7 +24,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200", allowedHeaders = "*")
+@CrossOrigin(origins = "https://loan-4b6a1.web.app", allowedHeaders = "*")
 @RequestMapping({ "/loan" })
 public class LoanController {
 
@@ -38,7 +38,7 @@ public class LoanController {
 	PayInter payment;
 	private static final Logger logger = LoggerFactory.getLogger(LoanController.class);
 
-	@CrossOrigin(origins = "http://localhost:4200")
+	@CrossOrigin(origins = "https://loan-4b6a1.web.app")
 	@RequestMapping(value = "", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<ScheduleSheet> create(@RequestBody Loan loan) {
 		try {
@@ -55,7 +55,7 @@ public class LoanController {
 		}
 	}
 
-	@CrossOrigin(origins = "http://localhost:4200")
+	@CrossOrigin(origins = "https://loan-4b6a1.web.app")
 	@RequestMapping(value = "", method = RequestMethod.GET)
 	public ResponseEntity<List<ScheduleSheet>> getSheet() {
 
@@ -71,7 +71,7 @@ public class LoanController {
 
 	}
 
-	@CrossOrigin(origins = "http://localhost:4200")
+	@CrossOrigin(origins = "https://loan-4b6a1.web.app")
 	@RequestMapping(value = "/get", method = RequestMethod.GET)
 	public ResponseEntity<List<Loan>> getLoans() {
 
@@ -87,7 +87,7 @@ public class LoanController {
 
 	}
 
-	@CrossOrigin(origins = "http://localhost:4200")
+	@CrossOrigin(origins = "https://loan-4b6a1.web.app")
 	@RequestMapping(value = "/pay", method = RequestMethod.POST, consumes = MediaType.ALL_VALUE)
 	public String pay(@RequestBody String code) {
 
