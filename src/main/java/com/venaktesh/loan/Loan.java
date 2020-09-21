@@ -2,12 +2,15 @@ package com.venaktesh.loan;
 
 import java.util.Date;
 
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection = "loan")
 public class Loan {
 //	@Id
 	private String id;
-	
+	private String loanID;
 	private String frequency;
-	private String loanAmount;
+	private int loanAmount;
 	private Double intrestRate;
 	private Date tradeDate;
 	private Date loanStartDate;
@@ -31,10 +34,10 @@ public class Loan {
 	public void setFrequency(String frequency) {
 		this.frequency = frequency;
 	}
-	public String getLoanAmount() {
+	public int getLoanAmount() {
 		return loanAmount;
 	}
-	public void setLoanAmount(String loanAmount) {
+	public void setLoanAmount(int loanAmount) {
 		this.loanAmount = loanAmount;
 	}
 	public Double getIntrestRate() {
@@ -92,7 +95,7 @@ public class Loan {
 				+ ", isExist=" + isExist + ", custID=" + custID + ", matric=" + matric + ", matureDate=" + matureDate
 				+ "]";
 	}
-	public Loan(String id, String frequency, String loanAmount, Double intrestRate, Date tradeDate, Date loanStartDate,
+	public Loan(String id, String frequency, int loanAmount, Double intrestRate, Date tradeDate, Date loanStartDate,
 			int term, boolean isExist, int custID, String matric, Date matureDate) {
 		super();
 		this.id = id;
@@ -106,6 +109,12 @@ public class Loan {
 		this.custID = custID;
 		this.matric = matric;
 		this.matureDate = matureDate;
+	}
+	public String getLoanID() {
+		return loanID;
+	}
+	public void setLoanID(String loanID) {
+		this.loanID = loanID;
 	}
 
 }
