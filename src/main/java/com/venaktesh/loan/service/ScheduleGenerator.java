@@ -1,4 +1,4 @@
-package com.venaktesh.loan;
+package com.venaktesh.loan.service;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -9,6 +9,10 @@ import org.apache.commons.lang3.time.DateUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
+
+import com.venaktesh.loan.model.Loan;
+import com.venaktesh.loan.model.Schedule;
+import com.venaktesh.loan.model.ScheduleSheet;
 
 @Service
 public class ScheduleGenerator implements Schedules {

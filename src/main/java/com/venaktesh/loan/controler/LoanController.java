@@ -1,4 +1,4 @@
-package com.venaktesh.loan;
+package com.venaktesh.loan.controler;
 
 //import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -6,6 +6,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.venaktesh.loan.model.Loan;
+import com.venaktesh.loan.model.ScheduleSheet;
+import com.venaktesh.loan.repository.LoanRepository;
+import com.venaktesh.loan.repository.ScheduleRepository;
+import com.venaktesh.loan.service.PayInter;
+import com.venaktesh.loan.service.Schedules;
 
 import java.util.List;
 

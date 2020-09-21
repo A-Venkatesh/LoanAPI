@@ -1,4 +1,4 @@
-package com.venaktesh.loan;
+package com.venaktesh.loan.service;
 
 public interface PayInter {
 

@@ -1,5 +1,7 @@
-package com.venaktesh.loan;
+package com.venaktesh.loan.service;
 import org.springframework.stereotype.Service;
+
+import com.venaktesh.loan.repository.ScheduleRepository;
 
 @Service
 public class Payment implements PayInter{
