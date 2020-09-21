@@ -3,11 +3,12 @@ package com.venaktesh.loan;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "scheduleSheet")
 public class ScheduleSheet {
-
+	@Id
 	private String loanID;
 	private List<Schedule> evenPrincipal = new ArrayList<Schedule>();
 	private List<Schedule> interestOnly  = new ArrayList<Schedule>();

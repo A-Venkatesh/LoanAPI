@@ -2,12 +2,15 @@ package com.venaktesh.loan;
 
 import java.util.Date;
 
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "loan")
 public class Loan {
 //	@Id
-	private String id;
+	
+    private String id;
+    @Id
 	private String loanID;
 	private String frequency;
 	private int loanAmount;

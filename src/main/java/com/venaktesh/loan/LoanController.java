@@ -50,11 +50,12 @@ public class LoanController {
 
 	@CrossOrigin(origins = "http://localhost:4200")
 	@RequestMapping(value = "", method = RequestMethod.GET)
-	public ResponseEntity<List<ScheduleSheet>> create(@RequestBody String ID) {
+	public ResponseEntity<List<ScheduleSheet>> getSheet() {
 //		System.out.println(loan.toString());
 		try {
-			
+			System.out.println("");
 			List<ScheduleSheet> _scheduleSheet = scheduleRepository.findAll();
+			System.out.println();
 	return new ResponseEntity<>(_scheduleSheet, HttpStatus.CREATED);
 
 		} catch (Exception e) {
@@ -63,4 +64,23 @@ public class LoanController {
 		}
 		// return loan;
 	}
+	
+	
+	
+	@CrossOrigin(origins = "http://localhost:4200")
+	@RequestMapping(value = "/get", method = RequestMethod.GET)
+	public ResponseEntity<List<Loan>> getLoans() {
+
+		try {
+
+			List<Loan> _loanApplication = loanRepository.findAll();
+
+			return new ResponseEntity<>(_loanApplication, HttpStatus.CREATED);
+		} catch (Exception e) {
+		
+			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	
+	}
+	
 }

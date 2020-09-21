@@ -14,8 +14,8 @@ public class ScheduleGenerator implements Schedules {
 
 	@Override
 	public ScheduleSheet createLoan(Loan loan) {
-		// TODO Auto-generated method stub
-	System.out.println(loan.isExist());
+
+		System.out.println(loan.isExist());
 		ScheduleSheet ss = new ScheduleSheet();
 		if (loan.isExist()) {
 			ss.setCustID(loan.getCustID());
@@ -44,18 +44,12 @@ public class ScheduleGenerator implements Schedules {
 			sc.setStartingBalance(loanamt);
 			sc.setPaymentAmount(payment);
 			sc.setPaymentStatus("PROJECTED");
-			// double pay = Payment(loan.getLoanAmount(), r, i);
-			// System.out.println(pay);
 			r = (loan.getIntrestRate() / 100) / getType(loan.getFrequency());
 			double intrest = r * loanamt;
 			sc.setProjectedInterest(intrest);
-			// System.out.println(intrest);
 			loanamt = loanamt - (payment - intrest);
 			sc.setPrincipal(payment - intrest);
-			// System.out.println(loanamt);
 			sc.setNewBalance(loanamt);
-			// System.out.println(i);
-//			System.out.println(sc);
 			evenPrincipal.add(sc);
 		}
 
@@ -68,36 +62,39 @@ public class ScheduleGenerator implements Schedules {
 			sc.setStartingBalance(loanamt);
 
 			sc.setPaymentStatus("PROJECTED");
-			// double pay = Payment(loan.getLoanAmount(), r, i);
-			// System.out.println(pay);
-
 			r = (loan.getIntrestRate() / 100) / getType(loan.getFrequency());
 			double intrest = r * loanamt;
+
 			sc.setPaymentAmount(intrest);
 			sc.setProjectedInterest(intrest);
-			// System.out.println(intrest);
-			// loanamt = loanamt - (payment - intrest);
 			sc.setPrincipal(0.00);
-			// System.out.println(loanamt);
 			sc.setNewBalance(loanamt);
-			// System.out.println(i);
-//			System.out.println(sc);
+			if (i == 1) {
+				sc.setPaymentAmount(intrest + loanamt);
+				sc.setNewBalance(0.00);
+				sc.setPrincipal(loanamt);
+			}
 			interestOnly.add(sc);
 		}
 		ss.setInterestOnly(interestOnly);
 		ss.setEvenPrincipal(evenPrincipal);
-//		ss.setCustID(loan.getCustID());
-		
-//		Timestamp ts1 = Timestamp.valueOf(new Date().toLocaleString());  
+
 		System.out.println(String.valueOf(new Date().getTime()));
 		ss.setLoanID(String.valueOf(new Date().getTime()));
-return ss;
+		return ss;
 	}
 
 	static double Payment(int p, double r, int t) {
-		double m = (p * r) / (1 - Math.pow(1 + r, -t));
-		m = Math.round(m * 100) / 100;
-		return m;
+		// double m = (p * r) / (1 - Math.pow(1 + r, -t));
+		// m = Math.round(m * 100) / 100;
+		double emi;
+
+		// r = r / (12 * 100); // one month interest
+		// t = t * 12; // one month period
+		emi = (p * r * (double) Math.pow(1 + r, t)) / (double) (Math.pow(1 + r, t) - 1);
+
+		return (emi);
+		// return m;
 	}
 
 	static int getFreq(String freq, int term, String mat) {
